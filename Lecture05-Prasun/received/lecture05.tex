@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,complexity}
+
+\newcommand{\CYCLE}{{\sf CYCLE~}}
+\newcommand{\FPSPACE}{{\sf FPSPACE~}}
+\usepackage{tikz}
+\usetikzlibrary{calc,through,backgrounds,decorations.pathmorphing}
+
+\input{preamble.tex}
+\begin{document}
+\lecture{5}{\FP vs $\#\P$ question}{Jan 12, 2012}{ Jayalal Sarma M.N.}{Prasun Kumar}
+\theme{Between $\P$ and $\PSPACE$.}
+\lectureplan{\FP vs $\#\P$ question, a counter part in the decision world. The class PP. PP vs P is equivalent to FP vs $\#\P$.}
+
+We know $(\#\P = \FP) \implies (\P = \NP)$\\
+Is the converse also true, i.e., does $(\P = \NP) \implies (\#\P = \FP)$ ?
+With this question we ended the last lecture. Interestingly, the status of this
+question is still unknown.
+
+In this lecture, we will define a new class of languages \PP(probabilistic polynomial)
+in decisoon world and then try to answer the above question by considering the 
+containment relationship between the classes \PP and \NP. 
+
+
+\section{Complexity Class \PP}
+With respect to a nondeterministic Turing machine(NTM), we have two different
+classes of languages as follows, which differs in their acceptance conditions by NTM 
+
+(i) \NP = $\{$L $|\exists$ NTM $M_1$, x $\in$ L $\iff M_1$ has atleast one accepting path on x $\}$\\
+(ii)\coNP = $\{$L $|\exists$ NTM $M_2$, x $\in$ L $\iff$all paths in $M_2$ are accepting paths on x $\}$
+
+So, in terms of number of accepting paths on input {\em x}, we are talking of
+extremums. On one side, in \NP  we talk of atleast one accepting path, and on
+the other side, in \coNP  we talk of all accepting paths. So here we can ask a
+question that will we get a different class of languages if we have larger than some fraction 
+of total number of paths as accepting paths by a nondeterministic turing machine
+on input {\em x}. The answer to this question is affirmative if we have this fraction
+to be half and the corresponding class of languages is called \PP (probabilistic polynomial)
+which is defined as follows \\ 
+
+\PP =$\{$L $|\exists$ NTM $M$, x $\in$ L $\iff$ atleast half of the total number of paths are accepting paths on x $\}$
+
+\begin{claim}
+ \coNP $\subseteq$ \PP
+\end{claim}
+\begin{proof}
+ directly follows from the definition.
+\end{proof}
+
+\begin{claim}
+  \NP $\subseteq$ \PP
+\end{claim}
+\begin{proof}
+Let L $\in$  \NP  via a nondeterministic turing machine M,  x $\in$ L $\iff$M has atleast one accepting path on x. 
+Our aim is to give another turing machine $M^{'}$ for the same language L such that
+x $\in$ L $\iff M^{'}$ has more than half of the total number of paths as accepting paths on x.\\
+Description of $M^{'}$ :\\ (i)  simulate M on {\em x}\\
+                        (ii) if M accepts then choose one bit nondeterministically and accept in both branches.\\
+                       (iii)if M rejects then choose one bit nondeterministically,accept in one branch
+                            and reject in other.\\
+Assume the height of computation tree of M on {\em x} is $p(n)$. Now, whenever x $\in$ L, number of
+accepting paths of $M^{'}$ on {\em x} is $\ge 2^{p(n)}$ where total number of paths in computation tree
+for $M^{'}$ is $2^{p(n)+1}$. Whenever x $\not\in$ L,all paths reject in M thus  number of accepting and rejecting
+paths in computation tree for $M^{'}$ are same and is equal to $2^{p(n)}$.
+\end{proof}
+Now, we have the following containment relationship among different classes of languages
+ 
+\begin{center}
+\PSPACE \\ 
+$\vert$ \\
+\PP \\
+$\vert$ \\
+\NP \\
+$\vert$ \\
+\P
+\end{center}
+
+\begin{theorem}
+ $(\#\P = \FP) \iff (\PP = \P)$
+\end{theorem}
+\begin{proof}
+($\Rightarrow$) Assume $\#\P = \FP$, our aim is to prove $\PP = \P$. Equivalently we have to prove that\\
+(i) $\P \subseteq \PP$ : it directly follows from the basic containment relation.\\
+(ii)$\PP \subseteq \P$ : so we need to show that $(L \in \PP) \implies (L \in \P)$.\\
+Let $L \in \PP$ via a NTM M $\implies x \in L$ if and only if more than half of the paths are accepting
+paths. Define $\# accept_M(x)$ as the {\em number of accepting paths of M on x}. Now let $f(x)=\# accept_M(x)$
+on any input x then $f \in \#p$(by definition). So, $f \in \FP$(by our assumption) thus we can write $f(x)$
+in poly time and by checking its value in poly time we can decide whether $x \in L$ or not. So, $L \in \P$.\\
+
+($\Leftarrow$)Assume $\PP = \P$, our aim is to prove $\#\P = \FP$. Equivalently we have to prove that\\
+(i) $\FP \subseteq \#\P$ : it directly follows from the basic containment relation.\\
+(ii)$\#\P \subseteq \FP$ : so we need to show that $(f \in \#\P) \implies (f \in \FP)$.\\
+Let $f\in \#\P$ via a NTM $M$ such that $\forall x$ $f(x)=\# accept_M(x)$. The naive approach
+to compute $f(x)$ is to compute the number of accepting paths in computation tree of height $p(n)$ which 
+will take exponential time. So we use an alternative way to show that $f \in \FP$ by finding 
+the minimum value of $k$ such that $k+\# accept_M(x)\textgreater 2^{p(n)}$. Our aim has now shifted to 
+given a $k$,how to figure out $k+\# accept_M(x)\textgreater 2^{p(n)}$. For this, we construct an another 
+nondeterministic turing machine $N$ as follows\\
+(a){\em Construct a NTM $M^{'}$ having exactly $k$ number of accepting states.}\\
+
+We can always construct such $M^{'}$ by making first lexicographic $k$ paths as accepting paths
+and make remaining as rejecting paths.\\
+
+(b){\em Extend the depth of $M^{'}$ from $\log(k)$ to $p(n)$ keeping the number of accepting paths same.}\\
+
+This we can do by making the computation tree a full and complete binary tree of depth $p(n)$. In the
+process, for all accepting paths with depth $\le p(n)$ we introduce a subtree at the corresponding leaf 
+such that we get a full and complete binary tree and in all those subtrees make the lexicographic first
+(leftmost) path as accepting path and make remaining as rejacting paths. Similarly,for all rejecting paths
+with depth $\le p(n)$ make all the paths in the subtree as rejecting paths.\
+
+(c)Introduce a new root node which goes to root of computation tree of $M$ on input $0$ and on input $1$
+it goes to root of computation tree of $M^{'}$.\
+ 
+Thus it runs in $p(n)+1$ depth and $\# accept_N(x)=k+\# accept_M(x)$.
+%Now $\# accept_N(x)= k+\# accept_M(x)\ge 2^{p(n)}$=1\2* $ 2^{p(n)+1}$=(1\2)*{\em total number of paths in
+%computation tree of N on x}. So, $x\in L(N)\iff \# accept_N(x)\ge2^{p(n)$. Thus,$L(N)\in \PP\implies L(N)\in \P$
+(by our assumption). We are interested in minimum $K$ and $0\le K \le 2^{p(n)}$, so we can make at most $p(n)$
+calls to find minimum $K$. So, we can write down $f(x)$ in poly time , hence $f\in\FP$.
+
+\end{proof}
+
+
+
+\end{document}

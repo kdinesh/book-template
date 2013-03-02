@@ -1,0 +1,215 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This file should be called  preamble.tex 
+% Your main LaTeX file should look like :
+%
+%	\documentclass[11pt]{article}
+%	\usepackage{amsmath,amssymb,amsfonts,amsthm,complexity}
+%
+%	\input{preamble.tex}
+%	\begin{document}
+%
+%	\lecture{LECTURE NO.}{TITLE OF SCRIBE}{DATE}{Jayalal Sarma M.N.}{YOUR NAME}
+%	\theme{THEME FOCUS}
+%	\lectureplan{A BRIEF DESCRIPTION OF THE LECTURE}
+%	
+%	\section{TOPIC 1}
+%	...
+%	\section{TOPIC 2}
+% 	...
+%	\end{document}
+% If there is not title, leave it as {}
+ 
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% Setting theorem style back for theorems defined in main file.
+\theoremstyle{plain}
+
+%\newenvironment{proof}{\noindent{\bf Proof}\hspace*{1em}}{\qed\bigskip}
+\newenvironment{proof-sketch}{\noindent{\bf Sketch of Proof}\hspace*{1em}}{\qed\bigskip}
+\newenvironment{proof-idea}{\noindent{\bf Proof Idea}\hspace*{1em}}{\qed\bigskip}
+\newenvironment{proof-of-lemma}[1]{\noindent{\bf Proof of Lemma #1}\hspace*{1em}}{\qed\bigskip}
+\newenvironment{proof-attempt}{\noindent{\bf Proof Attempt}\hspace*{1em}}{\qed\bigskip}
+\newenvironment{proofof}[1]{\noindent{\bf Proof}
+of #1:\hspace*{1em}}{\qed\bigskip}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Useful Complexity Classes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ntime}{\hbox{NTIME}}
+\newcommand{\nspace}{\hbox{NSPACE}}
+\newcommand{\conspace}{\hbox{co-NSPACE}}
+\newcommand{\np}{\hbox{NP}}
+\newcommand{\pspace}{\hbox{PSPACE}}
+\newcommand{\lspace}{\hbox{L}}
+\newcommand{\conp}{\hbox{coNP}}
+\newcommand{\exptime}{\hbox{EXPTIME}}
+\newcommand{\elem}{\hbox{E}}
+\newcommand{\nl}{\hbox{NL}}
+\newcommand{\bpp}{\hbox{BPP}}
+\newcommand{\nregexp}{\hbox{NREGEXP}}
+\newcommand{\tqbf}{\hbox{TQBF}}
+\newcommand{\threesat}{\hbox{3SAT}}
+\newcommand{\cvp}{\hbox{CVP}}
+\newcommand{\stconn}{\hbox{STCONN}}
+\newcommand{\ispath}{\hbox{ISPATH}}
+
+%\newcommand{\class}{\hbox{$\mathbb{C}$}} 
+%\newcommand{\class}{\hbox{$\mathbf{C}$}} 
+
+\newcommand{\lep}{\leq _{\hbox{P}}}
+\newcommand{\lel}{\leq _{\hbox{L}}}
+\newcommand{\aspace}[1]{{\rm ASPACE}(#1)}
+\newcommand{\atime}[1]{{\rm ATIME}(#1)}
+\newcommand{\dtime}[1]{{\rm DTIME}(#1)}
+\newcommand{\spa}[1]{{\rm SPACE}(#1)}
+\newcommand{\ti}[1]{{\rm TIME}(#1)}
+\newcommand{\ap}{{\rm AP}}
+\newcommand{\al}{{\rm AL}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Useful Macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\Pr}[1]{\mathify{\mbox{Pr}\left[#1\right]}}
+\newcommand{\Exp}[1]{\mathify{\mbox{Exp}\left[#1\right]}}
+\newcommand{\bigO}O
+\newcommand{\set}[1]{\mathify{\left\{ #1 \right\}}}
+\def\half{\frac{1}{2}}
+
+\def\implies{\Rightarrow}
+\def\prob#1#2{{\mathop{{\rm Prob}}_{#1}}\left[#2 \right]}
+\def\var#1#2{{\mathop{{\rm Var}}_{#1}}[#2]}
+\def\expec#1#2{{\mathop{{\rm E}}_{#1}}[#2]}
+\def\sizeof#1{\left| #1\right|}
+\def\setof#1{\left\{ #1\right\}  }
+
+\newcommand{\F}{{\mathbb{F}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+%\newcommand{\qed}{\rule{7pt}{7pt}}
+
+% \makeatletter
+% \@addtoreset{figure}{section}
+% \@addtoreset{table}{section}
+% \@addtoreset{equation}{section}
+% \makeatother
+
+\newcommand{\FOR}{{\bf for}}
+\newcommand{\TO}{{\bf to}}
+\newcommand{\DO}{{\bf do}}
+\newcommand{\WHILE}{{\bf while}}
+\newcommand{\AND}{{\bf and}}
+\newcommand{\IF}{{\bf if}}
+\newcommand{\THEN}{{\bf then}}
+\newcommand{\ELSE}{{\bf else}}
+\newcommand{\N}{\mathbb{N}}
+
+% \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+% \renewcommand{\thetable}{\thesection.\arabic{table}}
+% \renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+% Calligraphic letters
+\newcommand{\calA}{{\cal A}}
+\newcommand{\calB}{{\cal B}}
+\newcommand{\calC}{{\cal C}}
+\newcommand{\calD}{{\cal D}}
+\newcommand{\calE}{{\cal E}}
+\newcommand{\calF}{{\cal F}}
+\newcommand{\calG}{{\cal G}}
+\newcommand{\calH}{{\cal H}}
+\newcommand{\calI}{{\cal I}}
+\newcommand{\calJ}{{\cal J}}
+\newcommand{\calK}{{\cal K}}
+\newcommand{\calL}{{\cal L}}
+\newcommand{\calM}{{\cal M}}
+\newcommand{\calN}{{\cal N}}
+\newcommand{\calO}{{\cal O}}
+\newcommand{\calP}{{\cal P}}
+\newcommand{\calQ}{{\cal Q}}
+\newcommand{\calR}{{\cal R}}
+\newcommand{\calS}{{\cal S}}
+\newcommand{\calT}{{\cal T}}
+\newcommand{\calU}{{\cal U}}
+\newcommand{\calV}{{\cal V}}
+\newcommand{\calW}{{\cal W}}
+\newcommand{\calX}{{\cal X}}
+\newcommand{\calY}{{\cal Y}}
+\newcommand{\calZ}{{\cal Z}}
+
+
+% Some macro's from Speilman's course.
+
+\makeatletter
+\def\fnum@figure{{\bf Figure \thefigure}}
+\def\fnum@table{{\bf Table \thetable}}
+\long\def\@mycaption#1[#2]#3{\addcontentsline{\csname
+  ext@#1\endcsname}{#1}{\protect\numberline{\csname 
+  the#1\endcsname}{\ignorespaces #2}}\par
+  \begingroup
+    \@parboxrestore
+    \small
+    \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
+  \endgroup}
+\def\mycaption{\refstepcounter\@captype \@dblarg{\@mycaption\@captype}}
+\makeatother
+
+\newcommand{\figcaption}[1]{\mycaption[]{#1}}
+\newcommand{\tabcaption}[1]{\mycaption[]{#1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Feel free to ignore the rest of this file.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Margins and page indentations
+% DO NOT EDIT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth=6in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+\topmargin=-0.1in
+\footskip=0.8in
+\parindent=0.0cm
+\parskip=0.3cm
+\textheight=8.00in
+\setcounter{tocdepth} {3}
+\setcounter{secnumdepth} {2}
+\sloppy
+
+
+\newcommand{\handout}[5]{
+   \renewcommand{\thepage}{#1-\arabic{page}}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 5.78in { {\bf CS6840: Advanced Complexity Theory} \hfill #2 }
+       \vspace{4mm}
+       \hbox to 5.78in { {\Large \hfill #5  \hfill} }
+       \vspace{2mm}
+       \hbox to 5.78in { {\em #3 \hfill #4} }
+      }
+   }
+   \end{center}
+   \vspace*{4mm}
+}
+
+\newcommand{\lecture}[5]{\handout{#1}{#3}{Lecturer:~#4}{Scribe: #5}{Lecture~#1~: #2}}
+
+\newcommand{\lectureplan}[1]{{\sc Lecture Plan:}#1\\}
+\newcommand{\theme}[1]{{\sc Theme:} #1\\}

@@ -1,0 +1,105 @@
+\newtheoremstyle{myplain}      {10pt}{10pt}{\itshape}{}{\scshape}{.}{.5em}{}
+\newtheoremstyle{mydefinition} {10pt}{10pt}{}{}{\scshape}{.}{.5em}{}
+\newtheoremstyle{myremark}     {10pt}{10pt}{}{}{\scshape}{.}{.5em}{}
+
+% Calligraphic letters
+\newcommand{\calA}{{\cal A}}
+\newcommand{\calB}{{\cal B}}
+\newcommand{\calC}{{\cal C}}
+\newcommand{\calD}{{\cal D}}
+\newcommand{\calE}{{\cal E}}
+\newcommand{\calF}{{\cal F}}
+\newcommand{\calG}{{\cal G}}
+\newcommand{\calH}{{\cal H}}
+\newcommand{\calI}{{\cal I}}
+\newcommand{\calJ}{{\cal J}}
+\newcommand{\calK}{{\cal K}}
+\newcommand{\calL}{{\cal L}}
+\newcommand{\calM}{{\cal M}}
+\newcommand{\calN}{{\cal N}}
+\newcommand{\calO}{{\cal O}}
+\newcommand{\calP}{{\cal P}}
+\newcommand{\calQ}{{\cal Q}}
+\newcommand{\calR}{{\cal R}}
+\newcommand{\calS}{{\cal S}}
+\newcommand{\calT}{{\cal T}}
+\newcommand{\calU}{{\cal U}}
+\newcommand{\calV}{{\cal V}}
+\newcommand{\calW}{{\cal W}}
+\newcommand{\calX}{{\cal X}}
+\newcommand{\calY}{{\cal Y}}
+\newcommand{\calZ}{{\cal Z}}
+
+\renewcommand{\qedsymbol}{\leavevmode
+  \hbox to.77778em{%
+  \hfil\vrule
+  \vbox to.875em{\hrule width.35em\vfil\hrule}%
+  \vrule\hfil}}
+
+\newcounter{lecture}
+\theoremstyle{myplain}
+\newtheorem{theorem}{Theorem}[lecture]
+\newtheorem{lemma}         [theorem]{Lemma}
+\newtheorem{proposition}   [theorem]{Proposition}
+\newtheorem{corollary}     [theorem]{Corollary}
+\newtheorem{claim}         [theorem]{Claim}
+\newtheorem{fact}          [theorem]{Fact}
+\newtheorem{observation}   [theorem]{Observation}
+
+\theoremstyle{mydefinition}
+\newtheorem{definition}    [theorem]{Definition}
+\newtheorem{example}       [theorem]{Example}
+\newtheorem{assumption}    [theorem]{Assumption}
+\newtheorem{openproblem}   [theorem]{Open Problem}
+\newtheorem{problem}       [theorem]{Problem}
+\newtheorem{exercise}      [theorem]{exercise}
+
+\theoremstyle{myremark}
+\newtheorem{remark}        [theorem]{Remark}
+\newtheorem{conjecture}    [theorem]{Conjecture}
+
+\numberwithin{equation} {lecture}
+\numberwithin{figure}   {lecture}
+\numberwithin{table}    {lecture}
+
+\renewcommand{\fnum@figure}{\textsc{Figure~\thefigure}}
+\renewcommand{\fnum@table}{\textsc{Table~\thetable}}
+
+
+\AtBeginDocument{\renewcommand\contentsname{Table of Contents}}
+
+\newcommand{\listofscribes}{List of Scribes}
+\newlistof{scribe}{scr}{\listofscribes}
+
+\newcommand{\Lecture}[4]{
+\setcounter{chapter}{#3}
+\setcounter{lecture}{#3}
+\setcounter{section}{0}  % To reset section numbering
+% For table of contents
+\addcontentsline{toc}{chapter}{\protect\numberline{#3}{#4}}
+% For list of scribes
+\addcontentsline{scr}{scribe}{\protect {\sf Lecture } \numberline{\sf \thelecture} {\em #1}}
+
+\noindent
+\parbox{8cm}{
+	%Indian Institute of Technology Madras\\
+	CS 6840 Advanced Complexity Theory\\
+	\rule{0mm}{6mm}%
+	{\it Instructor:} Jayalal Sarma\\
+	{\it Scribe:}	#1\\
+	{\it Date:}     #2
+}
+\hfill
+\begin{tabular}{c@{}}
+{\bf\Large LECTURE}\\
+\rule{0mm}{17mm}\scalebox{6.6}{\bf\thelecture}
+\end{tabular}
+
+\vspace{2.5cm}
+\begin{center}
+{\LARGE \bf #4}
+\end{center}
+\vspace{1cm}
+\thispagestyle{empty}
+}
+
