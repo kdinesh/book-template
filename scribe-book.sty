@@ -74,7 +74,15 @@
 \newcommand{\Lecture}[4]{
 \setcounter{chapter}{#3}
 \setcounter{lecture}{#3}
-\setcounter{section}{0}  % To reset section numbering
+
+% To reset numbering in a new lecture
+\setcounter{section}{0}  
+\setcounter{theorem}{0}  
+\setcounter{lemma}{0}  
+\setcounter{definition}{0}  
+\setcounter{example}{0}  
+\setcounter{corollary}{0}  
+
 % For table of contents
 \addcontentsline{toc}{chapter}{\protect\numberline{#3}{#4}}
 % For list of scribes
