@@ -1,3 +1,37 @@
+\newpage
+\def\thislecturealone{1} %
+
+\ifnum\thislecturealone=1
+	\documentclass{report}
+	\usepackage{amsfonts,amsthm,amsmath,latexsym}
+	\usepackage{graphicx,fullpage}
+	\usepackage[titles,subfigure]{tocloft}
+	\usepackage[margin=1.5in]{geometry}
+	\usepackage{complexity}
+	\usepackage{scribe-book}
+	\usepackage{caption,subcaption,float}
+	% *******************************
+	% Add packages that you need here
+	% *******************************
+	\usepackage{tikz}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{calc,through,backgrounds,decorations.pathmorphing}
+	% *******************************
+\fi
+
+% Define custom commands here 
+% ****************************
+\newcommand{\CYCLE}{{\sf CYCLE~}}
+\newcommand{\FPSPACE}{{\sf FPSPACE~}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\F}{{\mathbb{F}}}
+% ****************************
+
+\ifnum\thislecturealone=1
+\begin{document}
+\fi
+
 \Lecture{Dinesh K.}{Jan 10, 2012}{4}{Quest for Structure in Counting Problems}
 %\theme{Between $\P$ and $\PSPACE$.}
 %\lectureplan{Counting problems and their structural complexity. Various attempts to develop the theory and the class $\#\P$. Basic containments.}
@@ -231,4 +265,9 @@ An interesting question would be to ask if the converse it true? That is
 Does $\P = \NP \text{ imply }  \#\P = \FP ?$
 \end{center}
 We will address this and show a weaker implication (that is, based on slightly stronger LHS) in the next lecture.
+
+
+\ifnum\thislecturealone=1
+\end{document}
+\fi
 

@@ -1,34 +1,18 @@
 \documentclass{report}
 \usepackage{amsfonts,amsthm,amsmath,latexsym}
 \usepackage[margin=1.5in]{geometry}
-\usepackage{complexity}
 \usepackage{graphicx}
 \usepackage[titles,subfigure]{tocloft}
+\usepackage{complexity}
 \usepackage{scribe-book}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc,through,backgrounds,decorations.pathmorphing}
 
 
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{float}
-
-\newcommand{\CYCLE}{{\sf CYCLE~}}
-\newcommand{\FPSPACE}{{\sf FPSPACE~}}
-\newcommand{\N}{{\mathbb{N}}}
-\newcommand{\Z}{{\mathbb{Z}}}
-\newcommand{\F}{{\mathbb{F}}}
-
-%% For xy matrix
-\input xy
-\xyoption{all}
-\CompileMatrices
-
-\usepackage{tikz}
-\usetikzlibrary{arrows}
-
-\usetikzlibrary{calc,through,backgrounds,decorations.pathmorphing}
-
-% Shows lecture titles and sections. Set 0 to list only chapters.
-\setcounter{tocdepth}{1}
 
 \begin{document}
 \newpage
@@ -42,10 +26,11 @@
 \newpage
 \tableofcontents
 
-\setcounter{page}{1}
+\setcounter{page}{0}
 \pagenumbering{arabic}  % Arabic page numbering for lectures.
 
-\input{lectures-list.tex}
+\input{lecture04.tex}
+\input{lecture05.tex}
 
 \bibliographystyle{abbrv}
 \bibliography{references}

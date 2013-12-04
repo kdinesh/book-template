@@ -1,3 +1,33 @@
+\newpage
+\def\thislecturealone{1} %
+
+\ifnum\thislecturealone=1
+	\documentclass{report}
+	\usepackage{amsfonts,amsthm,amsmath,latexsym}
+	\usepackage{graphicx,fullpage}
+	\usepackage[titles,subfigure]{tocloft}
+	\usepackage[margin=1.5in]{geometry}
+	\usepackage{complexity}
+	\usepackage{scribe-book}
+	\usepackage{caption,subcaption,float}
+	% *******************************
+	% Add packages that you need here
+	% *******************************
+	\usepackage{tikz}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{calc,through,backgrounds,decorations.pathmorphing}
+	% *******************************
+\fi
+
+% Define custom commands here 
+% ****************************
+
+% ****************************
+
+\ifnum\thislecturealone=1
+\begin{document}
+\fi
+
 \Lecture{Prasun Kumar}{Jan 12, 2012}{5}{$\FP$ vs $\#\P$ question}
 %\theme{ Between $\P$ and $\PSPACE$.}
 %\lectureplan{ $\FP$ vs $\#\P$ question, a counter part in the decision world. The class PP. PP vs P is equivalent to FP vs $\#\P$.}
@@ -98,6 +128,10 @@ The machine $M_k$ guesses a $y \in \{0,1\}^{p(n)}$ and {\em accepts} if the firs
 
 We combine $M_k$ and $N$ (both using exactly $p(n)$ non-deterministic bits), to get the machine $N$. The machine $N$ on input $x$ guesses $1$ bit and on the $0$-branch it simulates $M_k$ on $x$ and on the $1$-branch it simulates $M$ on $x$. Clearly $\#acc_N(x) = \#acc_{M_k}(x) + \#acc_{M}(x) = k+\#acc_{M}(x)$. The length of each path is exactly $p(n)+1$ and hence total number of paths is $2^{p(n)+1}$.
 \end{proof}
+
+\ifnum\thislecturealone=1
+\end{document}
+\fi
 
 
 
